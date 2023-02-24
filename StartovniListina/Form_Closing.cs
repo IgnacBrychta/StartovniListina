@@ -22,6 +22,9 @@ namespace StartovniListina
         volatile int window_y;
         const int multiplier = 5;
         bool allowClosing = false;
+        const int flags = 0x40 | 0x1 | 0x200;
+        const int xOffset = 100;
+        const int yOffset = 100;
         public struct Rect
         {
             public int Left { get; set; }
@@ -47,15 +50,15 @@ namespace StartovniListina
                 {
                     Invoke(new Action(() =>
                     {
-                        window_x += window_x - Cursor.Position.X < 0 ? 1 * multiplier : -1 * multiplier;
-                        window_y += window_y - Cursor.Position.Y < 0 ? 1 * multiplier : -1 * multiplier;
-                        SetWindowPos(Handle, 0, window_x, window_y, 0, 0, 69);
+                        window_x += window_x + xOffset - Cursor.Position.X < 0 ? 1 * multiplier : -1 * multiplier;
+                        window_y += window_y + yOffset - Cursor.Position.Y < 0 ? 1 * multiplier : -1 * multiplier;
+                        //SetWindowPos(Handle, 0, window_x, window_y, 0, 0, 69);
+                        SetWindowPos(Handle, -1, window_x, window_y, 0, 0, flags);
                     }));
                     await Task.Delay(2);
                 }
             });
         }
-
         private void Form_Closing_FormClosing(object sender, FormClosingEventArgs e)
         {
             e.Cancel = !allowClosing;
