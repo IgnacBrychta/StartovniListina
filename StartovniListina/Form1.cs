@@ -13,6 +13,11 @@ namespace StartovniListina
         TimeSpan timeDifference;
         public Form1()
         {
+            if(Debugger.IsAttached)
+            {
+                Application.Restart();
+                Environment.Exit(0);
+            }
             InitializeComponent();
         }
         private void button_prochazet_Click(object sender, EventArgs e)
@@ -38,7 +43,7 @@ namespace StartovniListina
                 Filter = "Textové soubory (*.txt)|*.txt",
                 Title = "Zvolte nové umístìní pro soubor jmen.",
                 FileName = "seznam_startovaci.txt",
-                InitialDirectory = "C:\\Users"
+                InitialDirectory = "C:\\Users",
             };
             saveFileDialog.ShowDialog();
             filePath = saveFileDialog.FileName;

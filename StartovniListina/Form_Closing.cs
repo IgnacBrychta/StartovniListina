@@ -15,12 +15,13 @@ namespace StartovniListina
     public partial class Form_Closing : Form
     {
         [DllImport("user32.dll", EntryPoint = "SetWindowPos")]
-        public static extern IntPtr SetWindowPos(IntPtr hWnd, int hWndInsertAfter, int x, int Y, int cx, int cy, int wFlags);
+        public static extern IntPtr SetWindowPos(IntPtr hWnd, int hWndInsertAfter, int x, int y, int cx, int cy, int wFlags);
         [DllImport("user32.dll", EntryPoint = "SetWindowPos")]
         public static extern bool GetWindowRect(IntPtr hwnd, ref Rect rectangle);
         volatile int window_x;
         volatile int window_y;
         const int multiplier = 5;
+        bool allowClosing = false;
         public struct Rect
         {
             public int Left { get; set; }
@@ -55,5 +56,17 @@ namespace StartovniListina
             });
         }
 
+        private void Form_Closing_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            e.Cancel = !allowClosing;
+        }
+        private void CloseButtonClick(object sender, EventArgs e)
+        {
+            allowClosing = true;
+        }
+        private void DontCloseButtonClick(object sender, EventArgs e)
+        {
+            allowClosing = true;
+        }
     }
 }
