@@ -20,6 +20,7 @@ namespace StartovniListina
         public static extern bool GetWindowRect(IntPtr hwnd, ref Rect rectangle);
         volatile int window_x;
         volatile int window_y;
+        const int multiplier = 5;
         public struct Rect
         {
             public int Left { get; set; }
@@ -45,8 +46,8 @@ namespace StartovniListina
                 {
                     Invoke(new Action(() =>
                     {
-                        window_x += window_x - Cursor.Position.X < 0 ? 1 : -1;
-                        window_y += window_y - Cursor.Position.Y < 0 ? 1 : -1;
+                        window_x += window_x - Cursor.Position.X < 0 ? 1 * multiplier : -1 * multiplier;
+                        window_y += window_y - Cursor.Position.Y < 0 ? 1 * multiplier : -1 * multiplier;
                         SetWindowPos(Handle, 0, window_x, window_y, 0, 0, 69);
                     }));
                     await Task.Delay(2);

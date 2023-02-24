@@ -40,9 +40,10 @@
             // 
             this.button1.DialogResult = System.Windows.Forms.DialogResult.No;
             this.button1.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.button1.Location = new System.Drawing.Point(527, 711);
+            this.button1.Location = new System.Drawing.Point(257, 546);
+            this.button1.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(332, 120);
+            this.button1.Size = new System.Drawing.Size(179, 56);
             this.button1.TabIndex = 0;
             this.button1.Text = "Ne";
             this.button1.UseVisualStyleBackColor = true;
@@ -51,9 +52,10 @@
             // 
             this.button2.DialogResult = System.Windows.Forms.DialogResult.Yes;
             this.button2.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.button2.Location = new System.Drawing.Point(50, 711);
+            this.button2.Location = new System.Drawing.Point(17, 546);
+            this.button2.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(332, 120);
+            this.button2.Size = new System.Drawing.Size(179, 56);
             this.button2.TabIndex = 1;
             this.button2.Text = "Ano";
             this.button2.UseVisualStyleBackColor = true;
@@ -62,32 +64,35 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(31, 51);
+            this.label1.Location = new System.Drawing.Point(17, 24);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(847, 72);
+            this.label1.Size = new System.Drawing.Size(419, 37);
             this.label1.TabIndex = 2;
             this.label1.Text = "Opravdu chcete program ukončit?";
             // 
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(245, 149);
+            this.pictureBox1.Location = new System.Drawing.Point(17, 62);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(435, 523);
+            this.pictureBox1.Size = new System.Drawing.Size(419, 462);
             this.pictureBox1.TabIndex = 3;
             this.pictureBox1.TabStop = false;
             // 
             // Form_Closing
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 32F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ClientSize = new System.Drawing.Size(901, 866);
+            this.ClientSize = new System.Drawing.Size(456, 615);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Form_Closing";

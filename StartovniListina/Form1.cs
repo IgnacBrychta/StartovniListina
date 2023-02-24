@@ -22,7 +22,7 @@ namespace StartovniListina
                 Filter = "Textové soubory (*.txt)|*.txt",
                 Title = "Zvolte soubor jmen.",
                 CheckFileExists = true,
-                InitialDirectory = "C:Users",
+                InitialDirectory = "C:\\Users",
                 Multiselect = false
             };
             openFileDialog.ShowDialog();
@@ -36,9 +36,9 @@ namespace StartovniListina
             SaveFileDialog saveFileDialog = new()
             {
                 Filter = "Textové soubory (*.txt)|*.txt",
-                Title = "Zvolte soubor jmen.",
+                Title = "Zvolte nové umístìní pro soubor jmen.",
                 FileName = "seznam_startovaci.txt",
-                InitialDirectory = "C:Users"
+                InitialDirectory = "C:\\Users"
             };
             saveFileDialog.ShowDialog();
             filePath = saveFileDialog.FileName;
@@ -95,6 +95,7 @@ namespace StartovniListina
             {
                 MessageBox.Show("Nezadali jste èas ve správném formátu", "Neplatný èas",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
             }
             UpdateTimeDifference(minutes);
         }
