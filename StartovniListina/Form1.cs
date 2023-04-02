@@ -13,7 +13,7 @@ namespace StartovniListina
         TimeSpan timeDifference;
         public Form1()
         {
-            if(Debugger.IsAttached)
+            if(false && Debugger.IsAttached)
             {
                 Application.Restart();
                 Environment.Exit(0);

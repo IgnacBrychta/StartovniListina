@@ -1,14 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Reflection.Metadata;
-using System.Runtime.InteropServices;
-using System.Text;
-using System.Threading;
-using System.Windows.Forms;
+﻿using System.Runtime.InteropServices;
 
 namespace StartovniListina
 {
@@ -20,11 +10,11 @@ namespace StartovniListina
         public static extern bool GetWindowRect(IntPtr hwnd, ref Rect rectangle);
         volatile int window_x;
         volatile int window_y;
-        const int multiplier = 5;
+        const int multiplier = 7;
         bool allowClosing = false;
         const int flags = 0x40 | 0x1 | 0x200;
-        const int xOffset = 100;
-        const int yOffset = 100;
+        const int xOffset = 300;
+        const int yOffset = 300;
         public struct Rect
         {
             public int Left { get; set; }
@@ -38,7 +28,7 @@ namespace StartovniListina
 
             Rect velikostOkna = new Rect();
             window_x = velikostOkna.Left;
-            window_y = velikostOkna.Top; 
+            window_y = velikostOkna.Top;
             GetWindowRect(Handle, ref velikostOkna);
             _ = StartMovingWindow();
         }
@@ -50,8 +40,24 @@ namespace StartovniListina
                 {
                     Invoke(new Action(() =>
                     {
-                        window_x += window_x + xOffset - Cursor.Position.X < 0 ? 1 * multiplier : -1 * multiplier;
-                        window_y += window_y + yOffset - Cursor.Position.Y < 0 ? 1 * multiplier : -1 * multiplier;
+                        if (Math.Abs(Cursor.Position.X - (window_x + xOffset)) < xOffset / 3)
+                        {
+                            window_x += window_x + xOffset - Cursor.Position.X < 0 ? 1 : -1;
+                            //this.Text = $"{Cursor.Position.X};{Cursor.Position.Y};{window_x};{window_y}";
+                        }
+                        else if (Cursor.Position.X != window_x + xOffset)
+                        {
+                            window_x += window_x + xOffset - Cursor.Position.X < 0 ? multiplier : -multiplier;
+                        }
+                        if (Math.Abs(Cursor.Position.Y - (window_y + yOffset)) < yOffset / 3)
+                        {
+                            window_y += window_y + yOffset - Cursor.Position.Y < 0 ? 1 : -1;
+                        }
+                        else if (Cursor.Position.Y != window_y + yOffset)
+                        {
+                            window_y += window_y + yOffset - Cursor.Position.Y < 0 ? multiplier : -multiplier;
+                        }
+                        
                         //SetWindowPos(Handle, 0, window_x, window_y, 0, 0, 69);
                         SetWindowPos(Handle, -1, window_x, window_y, 0, 0, flags);
                     }));
