@@ -4,16 +4,16 @@ using System.Runtime.InteropServices;
 
 namespace StartovniListina
 {
-    public partial class Form1 : Form
+    public partial class MainWindow : Form
     {
         string pathToNamesList = string.Empty;
         string pathToNewList = string.Empty;
         readonly string separator = Environment.NewLine;
         TimeSpan startTime;
         TimeSpan timeDifference;
-        public Form1()
+        public MainWindow()
         {
-            if(false && Debugger.IsAttached)
+            if(Debugger.IsAttached)
             {
                 Application.Restart();
                 Environment.Exit(0);

@@ -1,7 +1,7 @@
 ﻿namespace StartovniListina
 {
-    public partial class Form1
-    {
+    public partial class MainWindow
+	{
         /// <summary>
         ///  Required designer variable.
         /// </summary>
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainWindow));
             this.button_prochazet = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
